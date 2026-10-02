@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Website Ekstrakurikuler Jurnalistik & Multimedia SMA Negeri 7 Medan. Informasi kegiatan, profil, struktur kepengurusan, dan bidang keterampilan jurnalistik serta multimedia.">
+    <meta name="keywords" content="Jurnalistik SMA Negeri 7 Medan, Ekstrakurikuler SMA Negeri 7 Medan, Jurnalistik dan Multimedia, SMA 7 Medan">
+    <meta name="author" content="Ekstrakurikuler Jurnalistik & Multimedia SMA Negeri 7 Medan">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#172554">
+    <title>Jurnalistik & Multimedia SMA Negeri 7 Medan | Ekstrakurikuler</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        .skip-link { position:absolute; left:-9999px; top:auto; }
+        .skip-link:focus { left:10px; top:10px; z-index:2000; background:#fff; color:#172554; padding:10px; border-radius:6px; }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #172554, #2563eb);
+            color: white;
+            padding: 20px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #bfdbfe;
+        }
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 8%;
+            color: white;
+
+            background:
+                linear-gradient(
+                    rgba(23, 37, 84, 0.8),
+                    rgba(37, 99, 235, 0.8)
+                ),
+                url("https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .hero p {
+            font-size: 19px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 25px;
+            background: white;
+            color: #1d4ed8;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #dbeafe;
+        }
+
+        section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: #172554;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            margin-bottom: 15px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+        }
+
+        .card .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #1d4ed8;
+            margin-bottom: 10px;
+        }
+
+        /* PROFIL */
+        .profil {
+            background: #eef4ff;
+        }
+
+        .profil-container {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .profil-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .profil-card .foto-placeholder {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: #dbeafe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+        }
+
+        .profil-card h3 {
+            color: #172554;
+            margin-bottom: 5px;
+        }
+
+        .profil-card .jabatan {
+            color: #2563eb;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* STRUKTUR */
+        .struktur {
+            background: white;
+        }
+
+        .struktur-container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .ketua {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .struktur-card {
+            background: #f8fafc;
+            border: 2px solid #dbeafe;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            width: 280px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        .struktur-card h3 {
+            color: #1d4ed8;
+            margin-bottom: 5px;
+        }
+
+        .struktur-card p {
+            font-weight: bold;
+            color: #172554;
+        }
+
+        .struktur-card .icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .wakil {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .kegiatan {
+            background: #eef4ff;
+        }
+
+        .kegiatan ul {
+            max-width: 800px;
+            margin: auto;
+            list-style: none;
+        }
+
+        .kegiatan li {
+            background: white;
+            margin-bottom: 12px;
+            padding: 15px 20px;
+            border-left: 5px solid #2563eb;
+            border-radius: 6px;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #172554, #2563eb);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero h2 {
+                font-size: 21px;
+            }
+
+            .cards,
+            .profil-container,
+            .wakil {
+                grid-template-columns: 1fr;
+            }
+
+            .ketua {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav>
+            <div class="logo">
+                JURNALISTIK & MULTIMEDIA
+            </div>
+
+            <ul>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#profil">Profil</a></li>
+                <li><a href="#struktur">Struktur</a></li>
+                <li><a href="#kegiatan">Kegiatan</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero" id="beranda">
+        <div class="hero-content">
+
+            <h1>Jurnalistik & Multimedia</h1>
+
+            <h2>SMA Negeri 7 Medan</h2>
+
+            <p>
+                Wadah bagi siswa untuk mengembangkan kreativitas,
+                kemampuan jurnalistik, fotografi, videografi,
+                desain grafis, dan berbagai keterampilan multimedia.
+            </p>
+
+            <a href="#tentang" class="button">
+                Pelajari Lebih Lanjut
+            </a>
+
+        </div>
+    </section>
+
+
+    <!-- TENTANG -->
+    <section class="about" id="tentang">
+
+        <div class="section-title">
+            <h2>Tentang Ekstrakurikuler</h2>
+            <p>Mengenal lebih dekat Jurnalistik dan Multimedia</p>
+        </div>
+
+        <div class="about-content">
+
+            <p>
+                Ekstrakurikuler Jurnalistik dan Multimedia merupakan
+                salah satu wadah bagi siswa SMA Negeri 7 Medan untuk
+                mengembangkan minat, bakat, kreativitas, serta
+                keterampilan di bidang jurnalistik dan multimedia.
+            </p>
+
+            <p>
+                Dalam kegiatan ini, siswa dapat belajar membuat berita,
+                melakukan wawancara, menulis artikel, mengambil foto,
+                membuat video, mengedit konten, membuat desain grafis,
+                serta mengelola berbagai media informasi sekolah.
+            </p>
+
+            <p>
+                Ekstrakurikuler ini juga melatih siswa untuk bekerja
+                sama, berkomunikasi, bertanggung jawab, berpikir kritis,
+                dan menghasilkan karya yang informatif serta kreatif.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- BIDANG -->
+    <section>
+
+        <div class="section-title">
+            <h2>Bidang yang Dipelajari</h2>
+            <p>Berbagai keterampilan yang dapat dikembangkan</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">📰</div>
+                <h3>Jurnalistik</h3>
+                <p>
+                    Belajar menulis berita, artikel, melakukan
+                    wawancara, mencari informasi, dan menyusun
+                    berita yang informatif.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📷</div>
+                <h3>Fotografi</h3>
+                <p>
+                    Mempelajari dasar fotografi, komposisi,
+                    pencahayaan, pengambilan gambar, serta
+                    penyuntingan foto.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🎥</div>
+                <h3>Videografi</h3>
+                <p>
+                    Belajar membuat video mulai dari menentukan ide,
+                    mengambil gambar, merekam audio hingga proses
+                    editing.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🎨</div>
+                <h3>Desain Grafis</h3>
+                <p>
+                    Mengembangkan kemampuan membuat poster,
+                    infografis, ilustrasi, dan berbagai konten
+                    visual yang menarik.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">💻</div>
+                <h3>Multimedia</h3>
+                <p>
+                    Mengenal berbagai teknologi digital untuk
+                    membuat dan menyajikan informasi dalam bentuk
+                    teks, gambar, audio, dan video.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📱</div>
+                <h3>Media Sosial</h3>
+                <p>
+                    Belajar membuat konten informatif dan kreatif
+                    untuk mendukung publikasi kegiatan sekolah
+                    melalui media digital.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROFIL SEKOLAH & PEMBINA -->
+    <section class="profil" id="profil">
+
+        <div class="section-title">
+            <h2>Pimpinan & Pembina</h2>
+            <p>SMA Negeri 7 Medan</p>
+        </div>
+
+        <div class="profil-container">
+
+            <div class="profil-card">
+
+                <div class="foto-placeholder">
+                    👨‍🏫
+                </div>
+
+                <h3>Bapak Suyono, S.Pd., M.Or</h3>
+
+                <p class="jabatan">
+                    Kepala Sekolah
+                </p>
+
+                <p>
+                    Kepala Sekolah SMA Negeri 7 Medan yang
+                    mendukung pengembangan kegiatan pendidikan
+                    dan ekstrakurikuler di lingkungan sekolah.
+                </p>
+
+            </div>
+
+
+            <div class="profil-card">
+
+                <div class="foto-placeholder">
+                    👩‍🏫
+                </div>
+
+                <h3>Ibu Septia Kharani Rambe, S.Pd.</h3>
+
+                <p class="jabatan">
+                    Pembina Ekstrakurikuler
+                </p>
+
+                <p>
+                    Pembina Ekstrakurikuler Jurnalistik dan
+                    Multimedia SMA Negeri 7 Medan yang
+                    mendampingi siswa dalam berbagai kegiatan
+                    jurnalistik dan multimedia.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- STRUKTUR KEPEMIMPINAN -->
+    <section class="struktur" id="struktur">
+
+        <div class="section-title">
+            <h2>Struktur Kepemimpinan</h2>
+            <p>
+                Ekstrakurikuler Jurnalistik dan Multimedia
+                SMA Negeri 7 Medan
+            </p>
+        </div>
+
+        <div class="struktur-container">
+
+            <!-- KETUA -->
+            <div class="ketua">
+
+                <div class="struktur-card">
+
+                    <div class="icon">👑</div>
+
+                    <h3>Ketua Umum</h3>
+
+                    <p>
+                        Aira Syafa azzahra
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PENGURUS -->
+            <div class="wakil">
+
+                <div class="struktur-card">
+
+                    <div class="icon">🤝</div>
+
+                    <h3>Wakil Ketua Umum</h3>
+
+                    <p>
+                        Fanesya Aliska Ramadani
+                    </p>
+
+                </div>
+
+
+                <div class="struktur-card">
+
+                    <div class="icon">📝</div>
+
+                    <h3>Sekretaris Umum</h3>
+
+                    <p>
+                        Qori Annisa Zamri lubis
+                    </p>
+
+                </div>
+
+
+                <div class="struktur-card">
+
+                    <div class="icon">💰</div>
+
+                    <h3>Bendahara Umum</h3>
+
+                    <p>
+                        Namira Putri Siahaan
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- KEGIATAN -->
+    <section class="kegiatan" id="kegiatan">
+
+        <div class="section-title">
+            <h2>Kegiatan Ekstrakurikuler</h2>
+            <p>Contoh kegiatan yang dilakukan anggota</p>
+        </div>
+
+        <ul>
+
+            <li>
+                📰 Membuat berita dan artikel sekolah
+            </li>
+
+            <li>
+                🎤 Melakukan wawancara dengan siswa,
+                guru, dan narasumber
+            </li>
+
+            <li>
+                📷 Meliput kegiatan sekolah melalui fotografi
+            </li>
+
+            <li>
+                🎥 Membuat dan mengedit video dokumentasi
+            </li>
+
+            <li>
+                🎨 Membuat poster dan desain grafis
+            </li>
+
+            <li>
+                📱 Membuat konten untuk media sosial sekolah
+            </li>
+
+            <li>
+                💻 Mengelola website atau media informasi sekolah
+            </li>
+
+            <li>
+                🏫 Melakukan dokumentasi berbagai acara sekolah
+            </li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- MANFAAT -->
+    <section>
+
+        <div class="section-title">
+            <h2>Manfaat Mengikuti Ekstrakurikuler</h2>
+            <p>Kemampuan yang dapat dikembangkan siswa</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">💡</div>
+                <h3>Kreativitas</h3>
+                <p>
+                    Mendorong siswa menghasilkan ide dan karya
+                    yang kreatif serta inovatif.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🤝</div>
+                <h3>Kerja Sama</h3>
+                <p>
+                    Melatih kemampuan bekerja dalam tim ketika
+                    membuat sebuah proyek multimedia.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🗣️</div>
+                <h3>Komunikasi</h3>
+                <p>
+                    Meningkatkan kemampuan menyampaikan informasi
+                    secara jelas dan efektif.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🧠</div>
+                <h3>Berpikir Kritis</h3>
+                <p>
+                    Melatih siswa dalam mencari, mengolah,
+                    memeriksa, dan menyampaikan informasi.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">⚙️</div>
+                <h3>Keterampilan Digital</h3>
+                <p>
+                    Mengenalkan berbagai keterampilan dan teknologi
+                    yang digunakan dalam dunia multimedia.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">⭐</div>
+                <h3>Kepercayaan Diri</h3>
+                <p>
+                    Memberikan pengalaman kepada siswa untuk
+                    menghasilkan dan mempresentasikan karya.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- KONTAK -->
+    <section class="contact" id="kontak">
+
+        <h2>Bergabung Bersama Kami!</h2>
+
+        <p>
+            Kembangkan kreativitas dan kemampuan digitalmu
+            melalui Ekstrakurikuler Jurnalistik dan Multimedia.
+        </p>
+
+        <p>
+            📍 SMA Negeri 7 Medan
+        </p>
+
+        <p>
+            📧 Silakan hubungi pihak sekolah/pembina untuk informasi pendaftaran.
+        </p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            &copy; 2026 Ekstrakurikuler Jurnalistik & Multimedia
+            - SMA Negeri 7 Medan
+        </p>
+
+    </footer>
+
+</body>
+</html>
